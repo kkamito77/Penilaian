@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+ <head>
+ <meta charset='utf-8'>
+ <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+ <title>My First</title>
+ <meta name='viewport' content='width=device-width, initial-scale=1'>
+ <script src="angularjs/angular.min.js"></script>
+ <script src="Apps.js"></script>
+ </head>
+ <body ng-controller="MyController">
+ <H2>{{Judul1}}</H2>
+ <p>{{Paragraph}}</p>
+ <h4>Penjumlahan 2 Bulangan</h4>
+ Angka Pertama<input type="text" ng-model="Angka1">
+ Angka Kedua <input type="text" ng-model="Angka2">
+ <button ng-click="Hitung()">Hitung</button>
+ </body>
+</html>

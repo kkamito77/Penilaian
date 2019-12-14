@@ -1,0 +1,73 @@
+<div class="col-lg">
+        <div class="card-body">
+        <div ng-init="Init()">
+            <div class="table-responsive table--no-card m-b-30">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mediumModal"
+                    ng-click="Clear()">
+                    Tambah Pertanyaan
+                </button>
+                <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card-body card-block">
+                                    <div class="form-group">
+                                        <label for="company" class=" form-control-label">NO</label>
+                                        <input type="text" id="company" placeholder="Masukkan Nomor"
+                                            class="form-control" ng-model="Input.NO">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vat" class=" form-control-label">ID</label>
+                                        <select class="form-control"
+                                            ng-options="item.idKompetensi as item.idKompetensi for item in DatasidKompetensi"
+                                            ng-model="SelectedidKompetensi">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="street" class=" form-control-label">Pertanyaan</label>
+                                        <input type="text" id="company" placeholder="Masukkan Pertanyaan"
+                                            class="form-control" ng-model="Input.Pertanyaan">
+
+                                    </div>
+
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel
+                                </button>
+                                <button type="button" class="btn btn-primary" ng-click="Simpan()">Tambah</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+                <table class="table table-bordered">
+                        <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">NO</th>
+                                    <th scope="col">KOMPETENSI</th>
+                                    <th scope="col">PERTANYAAN</th>
+                                    <th scope="col">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    <tr ng-repeat="item in DatasPertanyaan">
+                        <td align="center">{{item.NO}}</td>
+                        <td align="center">{{item.Nm_Kompetensi}}</td>
+                        <td align="center">{{item.Pertanyaan}}</td>
+                        <td align="center">
+                            <button type="button" class="btn btn-primary" ng-click="GetData(item)" data-target="#mediumModal" data-toggle="modal">Ubah</button>
+                            <button type="button" class="btn btn-success" ng-click="Hapus(item)">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

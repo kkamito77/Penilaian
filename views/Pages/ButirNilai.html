@@ -1,0 +1,46 @@
+<div class="col-lg">
+    <div class="card-body">
+        <div ng-init="Init()">
+            <div class="table-responsive table--no-card m-b-30">
+                
+                <p align="center">Pilih Matakuliah</p>
+                <select name="" align="center" id="" class="col-lg-12" ng-options="item as item.nmmk for item in DatasMatakuliah" ng-change="TampilPertanyaan()" ng-model="SelectedMatakuliah"></select>
+                <div class="panel-body">
+                    <section ng-repeat="item in Pertanyaan" ng-show="ShowPertanyaan">
+                    {{item.Kompetensi}}
+                    <div ng-class="item.klas">
+                        <div ng-repeat="Pertanyaan in item.Pertanyaan">
+                            <div class="panel-heading">
+                               {{Pertanyaan.butir_nilai}}
+                            </div>
+                            <div class="panel-content">
+                                <div class="from-group">
+                                    <div>
+                                        <label for="">
+                                            <input type="radio" name="{{Pertanyaan.No}}" value="1" ng-model="Pertanyaan.nilai_ev">
+                                            1
+                                        </label>
+                                        <label for="">
+                                            <input type="radio" name="{{Pertanyaan.No}}" value="2" ng-model="Pertanyaan.nilai_ev">
+                                            2
+                                        </label>
+                                        <label for="">
+                                                <input type="radio" name="{{Pertanyaan.No}}" value="3" ng-model="Pertanyaan.nilai_ev">
+                                                3
+                                        </label>
+                                        <label for="">
+                                            <input type="radio" name="{{Pertanyaan.No}}" value="4" ng-model="Pertanyaan.nilai_ev">
+                                                4
+                                        </label>
+                                </div>
+                            </div>
+                            </div>   
+                        </div>
+                    </div>
+                    </section>
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="Simpan()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

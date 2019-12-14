@@ -1,0 +1,27 @@
+    <div class="col-lg">
+        <div class="card-body">
+            <div ng-init="Init()">
+                <div class="table-responsive table--no-card m-b-30">
+                    <p align="center">Penilaian Dosen</p>
+                    <p>Jurusan Prodi : Teknik Informatika</p>
+                    <p>Matakuliah: {{item.nmmk}}</p>
+                    <p>Dosen Pengampun: {{item.dsnampu}}</p>
+                    <table border="1">
+                        <tr>
+                            <th>NO</th>
+                            <th>PERTANYAAN</th>
+                            <th>NILAI</th>
+                        </tr>
+                        <tr ng-repeat="item in Pertanyaan">
+                            <td colspan="3">{{item.Kompetensi}}</td>
+                        </tr>
+                        <tr ng-repeat="Pertanyaan in item.Pertanyaan">
+                            <td>{{$index+1}}</td>
+                            <td>{{Pertanyaan.butir_nilai}}</td>
+                            <td ng-repeat="nilai_ev in item.Datasnilai_evaluasi">{{item.nilai_ev}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

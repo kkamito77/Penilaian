@@ -1,0 +1,21 @@
+// stylelint-disable declaration-no-important
+
+// Contextual backgrounds
+
+@mixin bg-variant($parent, $color) {
+  #{$parent} {
+    background-image: url(images/20215.jpg);
+  }
+  a#{$parent},
+  button#{$parent} {
+    @include hover-focus {
+      background-image: url(images/20215.jpg);
+    }
+  }
+}
+
+@mixin bg-gradient-variant($parent, $color) {
+  #{$parent} {
+    background-image: url(images/20215.jpg);
+  }
+}

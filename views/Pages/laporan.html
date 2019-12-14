@@ -1,0 +1,310 @@
+<div class="col-lg">
+  <div class="card-body">
+    <div ng-init="Init()">
+      <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">NO</th>
+              <th scope="col">GENAP/GANJIL</th>
+              <th scope="col">KMK</th>
+              <th scope="col">KELAS</th>
+              <th scope="col">NIDN</th>
+
+              <th scope="col">ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in Datasnilai_evaluasi">
+              <td align="center">{{$index+1}}</td>
+              <td align="center">{{item.gg}}</td>
+              <td align="center">{{item.kmk}}</td>
+              <td align="center">{{item.kelas}}</td>
+              <td align="center">{{item.nidn}}</td>
+
+              <td align="center">
+                <button class="btn btn-primary" type="button" ng-click="Cetak('print')">
+                  Print
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="print" ng-hide="hideprint" class="table-responsive">
+        <table width="1024" border="1" cellpadding="0" cellspacing="0">
+          <tr ng-repeat="item in DatasMatakuliah">
+            <td height="66" align="center" valign="middle">
+              <p><strong>TAHUN</strong></p>
+              <p><strong>AKADEMIK</strong></p>
+              <p><strong>{{item.thakademik}}</strong></p>
+            </td>
+            <td colspan="6" align="center" valign="middle">
+              <p><strong>SEKOLAH TINGGI ILMU MANAJEMEN INFORMATIKA DAN KOMPUTER</strong></p>
+              <p><strong>(STIMIK) SEPULUH NOPEMBER PAPUA</strong></p>
+              <p><strong>
+                  <font size="-1">Jl. Ardipura Raya No.22B, Jayapura Selatan, Kota Jayapura</font>
+                </strong></p>
+              <p><strong>
+                  <font size="-1">Telp. (0967)533400, 533769 Fax(0967)533799</font>
+                </strong></p>
+            </td>
+            <td align="center" valign="middle">
+              <P><strong>SEMESTER</strong></P>
+              <p><strong></strong>{{item.smt}}</strong></p>
+              <p><strong>{{item.gg}}</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td height="88" colspan="8" align="center" valign="middle">
+              <p><strong>PENILAIAN DOSEN</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td height="319" colspan="8" align="right" valign="top">
+              <table width="993" height="152" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="175" height="27"><strong>KMK</strong></td>
+                  <td width="351">: {{item.kmk}}</td>
+                  <td width="175" height="27"><strong>KELAS</strong></td>
+                  <td width="351">: {{item.kelas}}</td>
+                </tr>
+                <tr>
+                  <td width="135"><strong>SKS</strong></td>
+                  <td width="332">: {{item.sks}}</td>
+                  <td height="135"><strong>SEMESTER</strong></td>
+                  <td width="332">: {{item.smt}}</td>
+                </tr>
+
+                <tr>
+                  <td height="135"><strong>NIDN</strong></td>
+                  <td width="351">: {{item.nidn}}</td>
+                  <td height="135"><strong>NAMA DOSEN</strong></td>
+                  <td width="351">: {{item.dsnampu}}</td>
+                </tr>
+              </table>
+              <table width="1078" height="339" border="1" cellpadding="0" cellspacing="0">
+                <tr align="center" valign="middle">
+                  <td width="34"><strong>NO</strong></td>
+                  <td width="400" colspan="4"><strong>PERTANYAAN</strong></td>
+                  <td width="94"><strong>NILAI</strong></td>
+                </tr>
+                <!-- <div ng-class="item.klas">
+                    <div ng-repeat="Pertanyaan in item.Pertanyaan"> -->
+                <tr>
+                  <td align="center" valign="middle"><strong>1</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kesiapan memberikan kuliah dan atau
+                      praktik</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>2</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Ketepatan waktu kehadiran dosen</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>3</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Lama waktu tatap muka sesuai SKS(4 SKS : 50 menit)</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>5</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Upaya membangkitkan minat mahasiswa pada mata kuliah ini di awal kuliah</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>6</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kemampuan menghidupkan suasan kelas</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>7</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Sistematika pengorganisasian materi kuliah</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>8</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kesesuaian materi yang diberikan dan kompetensi yang ditetapkan</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>9</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kejelasan penyampaian tujuan pembelajaran, materi dan jawaban terhadap pertanyaan di kelas</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>10</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Waktu khusus yang disediakan untuk berdiskusi tentang materi kuliah</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>11</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>kemampuan mengarahkan diskusi sehingga mencapai sasaran</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>12</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Keragaman metode pembelajaran (ceramah, diskusi, SCL, tanya jawab)</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>13</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Keragaman sumber belajar(referensi, kasus lapanga, pengalaman sendiri, dll</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>14</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Pemanfaatan media dan teknologi pembelajaran</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>15</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Pemberian tugas terstuktur( paper, rangkuman, latihan soal/pemecahan)</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>16</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Pemberian umpan balik terhadap tugas(pengembalian tugas)</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>17</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Keaneragaman cara pengukuran hasil belajar/evaluasi</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>18</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kesesuaian materi ujian dan/atau tugas dengan tujuan kompetensimata kuliah</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>19</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kesesuaian nilai yang diberikan dengan hasil belajar</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>20</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>penguasaan terhadap materi pembelajaran</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>21</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kemampuan menjelaskan pokok pembahasan/topik secara sistematis</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>22</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kemampuan memberikan contoh relevan dari konsep yang diajarkan</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>23</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kedalaman dan keluasaan dalam membahas contoh kasus</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>24</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kemampuan menjelaskan ketertarikan bidang/topik yang diajarkan dengan bidang/topik lain</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>25</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kemampuan menjelaskan ketertarikan bidang/topik yang diajarkan dengan konteks kehidupan</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>26</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Penguasaan akan isu-isu mutakhir dalam bidang yang diajarkan</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>27</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Penggunaan hasil-hasil penelitian untuk meningkatkan kualitas pembelajaran</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>28</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kemampuan menggunakan beragam teknologi komunikasi untuk pengkayaan materi ajar</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>29</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Rasa percaya diri akan kemampuan mengajar</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>30</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kewibawaan sebagai pribadi dosen"</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>31</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kearifan dalam mengambil keputusan(menyeleasaikan persoalan mahasiswa)</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>32</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Menjadi contoh dalam bersikap dan berperilaku</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>33</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Satunya kata dan tindakan(konsisten)</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>34</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kemampuan mengendalikan diri dalam berbagai situasi</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>35</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Adil dalam memperlakukan mahasiswa</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>36</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kemampuan menerima kritik, saran dan pendapat orang lain</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>37</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Kesediaan meluangkan waktu untuk konsultasi di luar kelas</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>38</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Mengenal baik mahasiswa yang mengikuti matakuliahnya</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>39</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>Mudah bergaul dengan segenap civitas(termasuk dengan mahasiswa</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><strong>40</strong></td>
+                  <td colspan="4" align="center" valign="middle"><strong>toleransi terhadap keberagaman mahasiswa</strong></td>
+                  <td align="center" valign="middle"><strong></strong></td>
+                </tr>
+                
+
+                <!-- </div>
+                </div> -->
+                <tr ng-repeat="item in DatasJumlah">
+                  <td colspan="5" align="center" valign="middle"><strong>JUMLAH</strong></td>
+                  <td align="center" valign="middle"><strong>{{item.Jumlah_111048}}</strong></td>
+                </tr>
+                <tr ng-repeat="item in DatasJumlah">
+                  <td colspan="5" align="center" valign="middle"><strong>PERSENTASE</strong></td>
+                  <td align="center" valign="middle"><strong>{{item.persentase_111048}}</strong></td>
+                </tr>
+              </table>
+              <p>&nbsp;</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
